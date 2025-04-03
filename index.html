@@ -3,43 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <main>
+    <main class="container">
       <div>
         <label for="password"></label>
-        <input type="text" placeholder="P4$W0RD!" readonly id="password"/>
+        <input class="input-default text" type="text" placeholder="P4$W0RD!" readonly  id="password"/>
       </div>
-      <div class="password-generator-container">
+      <div class="generate-passwordbox">
         <div class="range-container">
-          <label value="8" id="length-info">LENGTH: 8</label>
+          <label class="text" value="8" id="length-info">LENGTH: 8</label>
+          <div class="password-option-length text">
           <span>4</span>
-          <input type="range" min="4" max="32" value="8" id="length-range"/>
+          <input class="input-range" type="range" min="4" max="32" value="8" id="length-range"/>
           <span>32</span>
         </div>
         <div class="toggle-section">
-        <span>Include Uppercase</span>
+        <span class="text">Include Uppercase</span>
         <input class="input-toggle" type="checkbox" id="check-for-uppercase"/>
         <label class="label" for="check-for-uppercase"></label>
         <div/>
-        <div class="toggle-section">
-          <span>Include Lowercase</span>
+        <div class="toggle-section"> <span class="text">Include Lowercase</span>
           <input class="input-toggle" type="checkbox" id="check-for-lowercase"/>
-          <label class="label" for="check-for-lowercase"></label>
+          <label class="label" for="check-for-lowercase"></label> 
           <div/>
           <div class="toggle-section">
-            <span>Include Numbers</span>
-            <input class="input-toggle" type="checkbox" id="check-for-numbers"/>
-            <label class="label" for="check-for-numbers"></label>
-            <div/>
-            <div class="toggle-section">
-              <span>Include Symbols</span>
-              <input class="input-toggle" type="checkbox" id="check-for-symbols"/>
-              <label class="label" for="check-for-symbols"></label>
-              <div/>
-              <button id="acction-button">Generate Password</button>
+          <span class="text">Include Numbers</span>
+          <input class="input-toggle" type="checkbox" id="check-for-numbers"/>
+          <label class="label" for="check-for-numbers"></label>
+          <div/>
+          <div>
+          <span class="text">Include Symbols</span>
+          <input class="input-toggle" type="checkbox" id="check-for-symbols"/>
+          <label class="label" for="check-for-symbols"></label>
+          <div/>
+         <div/>
+              <button class="button-default text" id="acction-button" disabled>Generate Password</button>
       </div>
     </main>
     <script src="./js/scripts.js"></script>
