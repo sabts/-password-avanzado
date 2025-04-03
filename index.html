@@ -7,6 +7,41 @@
     <title>Document</title>
   </head>
   <body>
+    <main>
+      <div>
+        <label for="password"></label>
+        <input type="text" placeholder="P4$W0RD!" readonly id="password"/>
+      </div>
+      <div class="password-generator-container">
+        <div class="range-container">
+          <label value="8" id="length-info">LENGTH: 8</label>
+          <span>4</span>
+          <input type="range" min="4" max="32" value="8" id="length-range"/>
+          <span>32</span>
+        </div>
+        <div class="toggle-section">
+        <span>Include Uppercase</span>
+        <input class="input-toggle" type="checkbox" id="check-for-uppercase"/>
+        <label class="label" for="check-for-uppercase"></label>
+        <div/>
+        <div class="toggle-section">
+          <span>Include Lowercase</span>
+          <input class="input-toggle" type="checkbox" id="check-for-lowercase"/>
+          <label class="label" for="check-for-lowercase"></label>
+          <div/>
+          <div class="toggle-section">
+            <span>Include Numbers</span>
+            <input class="input-toggle" type="checkbox" id="check-for-numbers"/>
+            <label class="label" for="check-for-numbers"></label>
+            <div/>
+            <div class="toggle-section">
+              <span>Include Symbols</span>
+              <input class="input-toggle" type="checkbox" id="check-for-symbols"/>
+              <label class="label" for="check-for-symbols"></label>
+              <div/>
+              <button id="acction-button">Generate Password</button>
+      </div>
+    </main>
     <script src="./js/scripts.js"></script>
   </body>
 </html>
