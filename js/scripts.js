@@ -2,28 +2,31 @@ const elementPassword = document.getElementById("password");
 const elementRangeLengthInfo = document.getElementById("length-info");
 const elementRangeSlider = document.getElementById("length-range");
 
-const elementToggleUpperCase = document.getElementById("check-for-uppercase");
-const elementToggleLowerCase = document.getElementById("check-for-lowercase");
-const elementToggleNumbers = document.getElementById("check-for-numbers");
-const elementToggleSymbols = document.getElementById("check-for-symbols");
+const elementToggleUpperCase = document.getElementById("uppercase");
+const elementToggleLowerCase = document.getElementById("lowercase");
+const elementToggleNumbers = document.getElementById("numbers");
+const elementToggleSymbols = document.getElementById("symbols");
 
 const elementButtonPassword = document.getElementById("button");
 
 const passwordContent = {
-  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  lowertCase: "abcdefghijklmnopqrstuvwxyz/",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowercase: "abcdefghijklmnopqrstuvwxyz/",
   numbers: "01234567890",
   symbols: "!@#$%^&*()_+-={}[]:;<>,.?/",
 };
 
 const allToggleOptions = document.querySelectorAll('.input-toggle');
 
+allToggleOptions.forEach(toggle => {
+  console.log(toggle.id);
+});
 
 let passwordLength = elementRangeSlider.value;
 let passwordCreated = "";
 let charactersAllowed = "";
 
-const detectPasswordLength = event => {
+const detectPasswordLength = event => { 
   passwordLength = event.target.value;
   elementRangeLengthInfo.textContent = `LENGTH: ${passwordLength}`;
   //console.log(event.target.value);
@@ -33,47 +36,24 @@ const generateAleatoryCharacters = (max) => {
   return (Math.floor(Math.random() * max))
 }
 
-const toggleCheekerActivateButton = () => {
-  if (
-    elementToggleUpperCase.checked ||
-    elementToggleLowerCase.checked ||
-    elementToggleNumbers.checked ||
-    elementToggleSymbols.checked
-  ) {
-    elementButtonPassword.disabled = false;
-  } else {
-    elementButtonPassword.disabled = true;
-  }
-  //console.log('Configuración de toggles:');
-  //console.log('Mayúsculas:', elementToggleUpperCase.checked);
-  //console.log('Minúsculas:', elementToggleLowerCase.checked);
-  //console.log('Números:', elementToggleNumbers.checked);
-  //console.log('Símbolos:', elementToggleSymbols.checked);
-};
+const toggleCheekerActivateButton = () => { 
+  elementButtonPassword.disabled = true;
+  
+  allToggleOptions.forEach(toggle => {
+    if (toggle.checked) {
+      elementButtonPassword.disabled = false;
+    }
+  });
+}
 
-const toggleContentinPassword = () => {
+const toggleContentinPassword = () => { 
   charactersAllowed = "";
 
-  if (elementToggleUpperCase.checked) {
-    charactersAllowed += passwordContent.upperCase;
-    passwordCreated += passwordContent.upperCase.charAt
-    (generateAleatoryCharacters(passwordContent.upperCase));
-  }
-  if (elementToggleLowerCase.checked) {
-    charactersAllowed += passwordContent.lowertCase;
-    passwordCreated += passwordContent.lowertCase.charAt
-    (generateAleatoryCharacters(passwordContent.lowertCase));
-  }
-  if (elementToggleNumbers.checked) {
-    charactersAllowed += passwordContent.numbers;
-    passwordCreated += passwordContent.numbers.charAt
-    (generateAleatoryCharacters(passwordContent.numbers));;
-  }
-  if (elementToggleSymbols.checked) {
-    charactersAllowed += passwordContent.symbols;
-    passwordCreated += passwordContent.symbols.charAt
-    (generateAleatoryCharacters(passwordContent.symbols));
-  }
+  allToggleOptions.forEach(toggleCheck => {
+    if (toggleCheck.checked) {
+      charactersAllowed += passwordContent[toggleCheck.id]}
+    }
+  );
 };
 
 const passwordGenerator = () => {
