@@ -1,18 +1,23 @@
 const elementPassword = document.getElementById("password");
 const elementRangeLengthInfo = document.getElementById("length-info");
 const elementRangeSlider = document.getElementById("length-range");
+
 const elementToggleUpperCase = document.getElementById("check-for-uppercase");
 const elementToggleLowerCase = document.getElementById("check-for-lowercase");
 const elementToggleNumbers = document.getElementById("check-for-numbers");
 const elementToggleSymbols = document.getElementById("check-for-symbols");
+
 const elementButtonPassword = document.getElementById("button");
 
 const passwordContent = {
-  UpperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  LowertCase: "abcdefghijklmnopqrstuvwxyz/",
+  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowertCase: "abcdefghijklmnopqrstuvwxyz/",
   numbers: "01234567890",
   symbols: "!@#$%^&*()_+-={}[]:;<>,.?/",
 };
+
+const allToggleOptions = document.querySelectorAll('.input-toggle');
+
 
 let passwordLength = elementRangeSlider.value;
 let passwordCreated = "";
@@ -23,6 +28,10 @@ const detectPasswordLength = event => {
   elementRangeLengthInfo.textContent = `LENGTH: ${passwordLength}`;
   //console.log(event.target.value);
 };
+
+const generateAleatoryCharacters = (max) => {
+  return (Math.floor(Math.random() * max))
+}
 
 const toggleCheekerActivateButton = () => {
   if (
@@ -46,40 +55,36 @@ const toggleContentinPassword = () => {
   charactersAllowed = "";
 
   if (elementToggleUpperCase.checked) {
-    charactersAllowed += passwordContent.UpperCase;
-    passwordCreated += passwordContent.UpperCase.charAt(
-      Math.floor(Math.random() * passwordContent.UpperCase.length)
-    );
+    charactersAllowed += passwordContent.upperCase;
+    passwordCreated += passwordContent.upperCase.charAt
+    (generateAleatoryCharacters(passwordContent.upperCase));
   }
   if (elementToggleLowerCase.checked) {
-    charactersAllowed += passwordContent.LowertCase;
-    passwordCreated += passwordContent.LowertCase.charAt(
-      Math.floor(Math.random() * passwordContent.LowertCase.length)
-    );
+    charactersAllowed += passwordContent.lowertCase;
+    passwordCreated += passwordContent.lowertCase.charAt
+    (generateAleatoryCharacters(passwordContent.lowertCase));
   }
   if (elementToggleNumbers.checked) {
     charactersAllowed += passwordContent.numbers;
-    passwordCreated += passwordContent.numbers.charAt(
-      Math.floor(Math.random() * passwordContent.numbers.length)
-    );
+    passwordCreated += passwordContent.numbers.charAt
+    (generateAleatoryCharacters(passwordContent.numbers));;
   }
   if (elementToggleSymbols.checked) {
     charactersAllowed += passwordContent.symbols;
-    passwordCreated += passwordContent.symbolsymbols.charAt(
-      Math.floor(Math.random() * passwordContent.symbolsymbols.length)
-    );
+    passwordCreated += passwordContent.symbols.charAt
+    (generateAleatoryCharacters(passwordContent.symbols));
   }
 };
 
 const passwordGenerator = () => {
   toggleContentinPassword();
-  for (let i = 0; 0 < elementRangeSlider - passwordCreated; i++) {
-    passwordContent += passwordContent.charAt(
-      Math.random() * passwordContent.length
+  for (let i = passwordCreated.length; i < passwordLength; i++) {
+    passwordCreated += charactersAllowed.charAt(
+      Math.floor(Math.random() * charactersAllowed.length)
     );
-    elementPassword.value = passwordCreated;
-    passwordCreated = "";
   }
+  elementPassword.value = passwordCreated;
+    passwordCreated = "";
 };
 
 elementRangeSlider.addEventListener("input", detectPasswordLength);

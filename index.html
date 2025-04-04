@@ -11,11 +11,16 @@
   </head>
   <body>
     <main class="container">
+
       <div>
         <label for="password"></label>
-        <input class="input-default text" type="text" placeholder="P4$W0RD!" readonly  id="password"/>
+        <input class="input-default text" 
+        type="text" placeholder="P4$W0RD!" readonly  
+        id="password"/>
       </div>
-      <div class="generate-passwordbox">
+
+    <div class="generate-passwordbox">
+
         <div class="range-container">
           <label class="text-range" 
           value="8" 
@@ -27,17 +32,20 @@
           id="length-range"/>
           <span class="text-range">32</span>
         </div>
+
         <div class="toggle-option-box"> 
           <span class="text">Include Uppercase</span>
           <input class="input-toggle" 
           type="checkbox" 
           id="check-for-uppercase"/>
-          <label class="label" for="check-for-uppercase"></label></div>
+          <label class="label" for="check-for-uppercase"></label>
+        </div>
        
           <div class="toggle-option-box">
              <span class="text">Include Lowercase</span>
             <input class="input-toggle" type="checkbox" id="check-for-lowercase"/>
-            <label class="label" for="check-for-lowercase"></label> </div>
+            <label class="label" for="check-for-lowercase"></label> 
+          </div>
             
             <div class="toggle-option-box">  
               <span class="text">Include Numbers</span>
@@ -47,10 +55,12 @@
 
             <div class="toggle-option-box"> <span class="text">Include Symbols</span>
               <input class="input-toggle" type="checkbox" id="check-for-symbols"/>
-              <label class="label" for="check-for-symbols"></label> </div>
-              <button class="button-default text" id="button" disabled>
-                Generate Password
-              </button>
+              <label class="label" for="check-for-symbols"></label> 
+            </div>
+        </div>
+        <button class="button-default text" id="button" disabled>
+          Generate Password
+        </button>
     </main>
     <script src="./js/scripts.js"></script>
   </body>
