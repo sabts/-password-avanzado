@@ -7,11 +7,6 @@ const elementToggleNumbers = document.getElementById("check-for-numbers");
 const elementToggleSymbols = document.getElementById("check-for-symbols");
 const elementButtonPassword = document.getElementById("button");
 
-//const UpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//const LowertCase = "abcdefghijklmnopqrstuvwxyz/";
-//const Numbers = "01234567890";
-//const Symbols = "!@#$%^&*()_+-={}[]:;<>,.?/";
-
 const passwordContent = {
   UpperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   LowertCase: "abcdefghijklmnopqrstuvwxyz/",
