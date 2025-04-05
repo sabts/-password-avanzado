@@ -151,6 +151,24 @@ body{
 
 .button-default:disabled{
    background-color: rgba(239, 239, 239, 0.30);
-   /*cursor: not-allowed;*/
+   cursor: not-allowed;
    opacity: 0.5;
+}
+@media screen and (min-width: 1080px){
+    body{
+        padding: 23.25rem 45.9375rem 26.1875rem 40.5625rem;
+    }
+    .container{
+        width: 536px;
+        padding: 10px;
+    }
+    .input-default{
+        height: 60px;
+        padding: 1rem 7rem;
+    }
+    
+    .button-default:hover{
+        transform: scale(0.95);
+        transform-origin: center; /*Desde donde crece*/
+    }
 }
