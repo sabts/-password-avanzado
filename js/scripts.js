@@ -16,7 +16,7 @@ const passwordContent = {
   symbols: "!@#$%^&*()_+-={}[]:;<>,.?/",
 };
 
-const allToggleOptions = document.querySelectorAll('.input-toggle');
+let allToggleOptions = document.querySelectorAll(".input-toggle");
 
 allToggleOptions.forEach(toggle => {
   console.log(toggle.id);
@@ -26,33 +26,36 @@ let passwordLength = elementRangeSlider.value;
 let passwordCreated = "";
 let charactersAllowed = "";
 
-const detectPasswordLength = event => { 
+const detectPasswordLength = event => {
   passwordLength = event.target.value;
   elementRangeLengthInfo.textContent = `LENGTH: ${passwordLength}`;
   //console.log(event.target.value);
 };
 
-const generateAleatoryCharacters = (max) => {
-  return (Math.floor(Math.random() * max))
-}
+const generateAleatoryCharacters = max => {
+  return Math.floor(Math.random() * max);
+};
 
-const toggleCheekerActivateButton = () => { 
+const toggleCheekerActivateButton = () => {
   elementButtonPassword.disabled = true;
-  
+
   allToggleOptions.forEach(toggle => {
     if (toggle.checked) {
       elementButtonPassword.disabled = false;
     }
   });
-}
+};
 
-const toggleContentinPassword = () => { 
+const toggleContentinPassword = () => {
   charactersAllowed = "";
+  allToggleOptions = document.querySelectorAll(".input-toggle:checked");
 
-  allToggleOptions.forEach(toggleCheck => {
-    if (toggleCheck.checked) {
-      charactersAllowed += passwordContent[toggleCheck.id]}
+  allToggleOptions.forEach(
+    toggleCheck => {
+      // if (toggleCheck.checked) {
+      charactersAllowed += passwordContent[allToggleOptions.id];
     }
+    // }
   );
 };
 
@@ -64,7 +67,7 @@ const passwordGenerator = () => {
     );
   }
   elementPassword.value = passwordCreated;
-    passwordCreated = "";
+  passwordCreated = "";
 };
 
 elementRangeSlider.addEventListener("input", detectPasswordLength);
